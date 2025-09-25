@@ -1,2 +1,2 @@
 # Emotion-Recognition-Chat-Bot
-Repo for 4th Honours Project
+Repo for 4th Year Honours Project
