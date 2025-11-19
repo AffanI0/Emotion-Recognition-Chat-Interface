@@ -4,11 +4,7 @@ import json
 # this is a simle chatbot that connects to ollama, llama 3 model
 def botChat(message):
     url = "http://localhost:11434/api/chat"
-    payload = {
-        "model": "llama3:8b",
-        "messages": [{"role": "user", "content": message}],
-        "stream": False 
-    }
+    payload = {"model": "llama3:8b", "messages": [{"role": "user", "content": message}], "stream": False }
      # making a post rquets to the ollama api
     try:
         response = requests.post(url, json=payload)
@@ -19,7 +15,7 @@ def botChat(message):
         answer = data.get("message", {}).get("content", "").strip()
         return answer
     except requests.exceptions.RequestException as e:
-        return f"Error connecting to ollama: {e}"
+        return print("Error connecting to ollama: {e}")
 
 # Simple chat loop for tesing with a users imput
 print("Chatbot started:")
@@ -28,5 +24,5 @@ while True:
     if userInput.lower() == 'quit':
         break
     response = botChat(userInput)
-    print(f"Bot: {response}")
+    print("Bot: ", response)
 
